@@ -47,3 +47,5 @@
 `protocolName` 协议名, 加入该属性, context在获取实例时会验证是否遵守了该协议
 
 `ref` 根据id寻找实例
+
+依赖于GDataXML和RNCryptor
