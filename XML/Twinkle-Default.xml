@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <beans>
+        <bean id="LoginProtocolImpl" className="LoginProtocolImpl" scope="singleton" />
+        
+        <bean id="LoginProtocolImplTest" className="LoginProtoclImplTest" />
+        
+        <bean id="LoginService" protocolName="LoginProtocol" ref="LoginProtocolImplTest" />
+        
+        <bean id="MainViewModel" className="MainViewModel">
+            <property name="loginService" ref="LoginService" />
+        </bean>
+        
+        <bean id="SecondViewModel" className="SecondViewModel">
+            <property name="loginService" ref="LoginService" />
+        </bean>
+        
+        <bean id="MainViewController" className="MainViewController" >
+            <property name="loginService" ref="LoginService" />
+        </bean>
+    </beans>
+</root>
+
+
