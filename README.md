@@ -48,4 +48,7 @@
 
 `ref` 根据id寻找实例
 
-依赖于GDataXML和RNCryptor
+依赖于
+1. GDataXML http://code.google.com/p/gdata-objectivec-client/source/browse/trunk/Source/XMLSupport/
+2. CocoaLumberjack https://github.com/CocoaLumberjack/CocoaLumberjack
+
