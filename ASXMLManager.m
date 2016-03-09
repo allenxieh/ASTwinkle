@@ -168,7 +168,6 @@ static id _sharedInstance;
                     else
                     {
                         //获取bean实例
-                        NSLog(@"%@",self.initializingClassPool);
                         if ([self.initializingClassPool valueForKey:name]) {
                             NSException *astException = [NSException exceptionWithName:@"ASTwinkle Error: BeanCurrentlyInCreationException" reason:[NSString stringWithFormat:@"line:%d <%@>循环依赖",__LINE__,name] userInfo:nil];
                             @throw astException;
