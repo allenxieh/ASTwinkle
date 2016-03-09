@@ -51,4 +51,3 @@
 依赖于
 1. GDataXML http://code.google.com/p/gdata-objectivec-client/source/browse/trunk/Source/XMLSupport/
 2. CocoaLumberjack https://github.com/CocoaLumberjack/CocoaLumberjack
-
