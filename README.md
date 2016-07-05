@@ -1,28 +1,20 @@
 # ASTwinkle
 简易的IoC, DI功能
 #XML格式
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <root>
     <beans>
-        <bean id="LoginProtocolImpl" className="LoginProtocolImpl" scope="singleton" />
         
-        <bean id="LoginProtocolImplTest" className="LoginProtoclImplTest" />
+        <bean id="ImplTestProtocol" className="ImplTestProtocol" scope="singleton"/>
         
-        <bean id="LoginService" protocolName="LoginProtocol" ref="LoginProtocolImplTest" />
+        <bean id="TestProtocol" protocolName="TestProtocol" ref="ImplTestProtocol" />
         
-        <bean id="MainViewModel" className="MainViewModel">
-            <property name="loginService" ref="LoginService" />
+        <bean id="TestA" className="TestA" >
+            <property name="testProtocl" ref = "TestProtocol"/>
         </bean>
-        
-        <bean id="SecondViewModel" className="SecondViewModel">
-            <property name="loginService" ref="LoginService" />
-        </bean>
-        
-        <bean id="MainViewController" className="MainViewController" >
-            <property name="loginService" ref="LoginService" />
-        </bean>
+
     </beans>
 </root>
 ```
@@ -49,5 +41,11 @@
 `ref` 根据id寻找实例
 
 依赖于
-1. GDataXML http://code.google.com/p/gdata-objectivec-client/source/browse/trunk/Source/XMLSupport/
-2. CocoaLumberjack https://github.com/CocoaLumberjack/CocoaLumberjack
+XML解析第三方框架:GDataXML http://code.google.com/p/gdata-objectivec-client/source/browse/trunk/Source/XMLSupport/
+
+#举个栗子
+```C
+@interface ClassA : NSObject
+
+@end
+```

@@ -10,7 +10,7 @@
 
 @interface ASApplicationContext : NSObject
 
-+ (instancetype)sharedApplicationContet;
++ (instancetype)sharedApplicationContext;
 
 - (id)getBeanByClass:(NSString *)className;
 - (id)getBeanByProtocol:(NSString *)protocolName;

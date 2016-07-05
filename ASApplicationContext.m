@@ -17,7 +17,7 @@
 @implementation ASApplicationContext
 
 static id _sharedInstance;
-+ (instancetype)sharedApplicationContet{
++ (instancetype)sharedApplicationContext{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[[self class] alloc] init];
