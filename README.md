@@ -1,6 +1,8 @@
 # ASTwinkle
+---
 简易的IoC, DI功能
 #XML格式
+---
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -44,8 +46,123 @@
 XML解析第三方框架:GDataXML http://code.google.com/p/gdata-objectivec-client/source/browse/trunk/Source/XMLSupport/
 
 #举个栗子
-```C
-@interface ClassA : NSObject
+---
+###类注入
+```Objc
+
+@interface ClassB : NSObject
+
+- (void)print;
 
 @end
+```
+```Objc
+#import "ClassB.h"
+
+@implementation ClassB
+
+- (void)print{
+    NSLog(@"this is classB");
+}
+
+@end
+```
+```ObjC
+#import "ClassB.h"
+
+@interface ClassA : NSObject
+
+@property (nonatomic,strong) ClassB *classB;
+
+@end
+```
+XML配置
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <beans>
+        <bean id="ClassA" className="ClassA" >
+            <property name="classB" className="ClassB"/>
+        </bean>
+    </beans>
+</root>
+```
+或者
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <beans>
+        <bean id="ClassA" className="ClassA" >
+            <property name="classB" ref="ClassB"/>
+        </bean>
+        <bean id="ClassB" className="ClassB" />
+    </beans>
+</root>
+```
+代码
+```Objc
+ClassA *classA = [[ASApplicationContext sharedApplicationContext] getBeanByClass:@"ClassA"];
+[classA.classB print];
+```
+控制台打印
+```
+this is classB
+```
+###协议注入
+```Objc
+@protocol ClassBProtocol <NSObject>
+
+- (void)print;
+
+@end
+```
+```Objc
+#import "ClassBProtocol.h"
+
+@interface ClassB : NSObject <ClassBProtocol>
+
+@end
+```
+```Objc
+#import "ClassB.h"
+
+@implementation ClassB
+
+- (void)print{
+    NSLog(@"this is classB");
+}
+
+@end
+```
+```Objc
+#import "ClassBProtocol.h"
+
+@interface ClassA : NSObject
+
+@property (nonatomic,assign) id<ClassBProtocol> classBProtocol;
+
+@end
+```
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <beans>
+        <bean id="ClassB" className="ClassB"/>
+        <bean id="ClassBProtocol" protocolName="ClassBProtocol" ref="ClassB" />
+        <bean id="ClassA" className="ClassA">
+            <property name="classBProtocol" ref="ClassBProtocol" />
+        </bean>
+    </beans>    
+</root>
+```
+代码
+```Objc
+ClassA *classA = [[ASApplicationContext sharedApplicationContext] getBeanByClass:@"ClassA"];
+[classA.classBProtocol print];
+```
+控制台打印
+```
+this is classB
 ```
