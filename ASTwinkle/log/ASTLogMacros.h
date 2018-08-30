@@ -1,9 +1,8 @@
 //
 //  ASTLogMacros.h
-//  如意夺宝
 //
 //  Created by allen on 16/4/14.
-//  Copyright © 2016年 com.juwang.rydb. All rights reserved.
+//  Copyright © 2016年 Allen All rights reserved.
 //
 
 #ifndef ASTLogMacros_h
@@ -13,7 +12,7 @@
 #define ASTLOG_LEVEL_DEF ASTLogLevelDef
 #endif
 
-#define ASTLOG_MACRO(lvl, flg, fnct, frmt, ...)                            \
+#define ASTLOG_MACRO(lvl, flg, fnct, frmt, ...)                         \
         [ASTLog level : lvl                                             \
         flag : flg                                                      \
         file : __FILE__                                                 \

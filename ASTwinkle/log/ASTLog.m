@@ -1,9 +1,8 @@
 //
 //  ASTLog.m
-//  如意夺宝
 //
 //  Created by allen on 16/4/12.
-//  Copyright © 2016年 com.juwang.rydb. All rights reserved.
+//  Copyright © 2016年 Allen All rights reserved.
 //
 
 #import "ASTLog.h"

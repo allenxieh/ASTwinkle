@@ -1,9 +1,8 @@
 //
 //  ASTLog.h
-//  如意夺宝
 //
 //  Created by allen on 16/4/12.
-//  Copyright © 2016年 com.juwang.rydb. All rights reserved.
+//  Copyright © 2016年 Allen All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,27 +11,27 @@
 @protocol ASTLogFormatter;
 typedef NS_OPTIONS(NSUInteger, ASTLogFlag){
     /**
-     *  0...00000 DDLogFlagError
+     *  0...00000 ASTLogFlagError
      */
     ASTLogFlagError      = (1 << 0),
     
     /**
-     *  0...00001 DDLogFlagWarning
+     *  0...00001 ASTLogFlagWarning
      */
     ASTLogFlagWarning    = (1 << 1),
     
     /**
-     *  0...00010 DDLogFlagInfo
+     *  0...00010 ASTLogFlagInfo
      */
     ASTLogFlagInfo       = (1 << 2),
     
     /**
-     *  0...00100 DDLogFlagDebug
+     *  0...00100 ASTLogFlagDebug
      */
     ASTLogFlagDebug      = (1 << 3),
     
     /**
-     *  0...01000 DDLogFlagVerbose
+     *  0...01000 ASTLogFlagVerbose
      */
     ASTLogFlagVerbose    = (1 << 4)
 };
